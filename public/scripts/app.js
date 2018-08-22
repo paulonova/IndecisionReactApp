@@ -1,96 +1,38 @@
 'use strict';
 
-console.log('App is running');
+var visibility = false;
 
-//JSX - Javascript XML
-
-//Only render the subtitle (and p tag) if subtitle exist - logical and operator
-// render new p tag - if options.length > 0 "Here are your options" - "No Options"
-
-var app = {
-    title: 'Indecision App',
-    subtitle: 'Put your life in order',
-    options: []
+var onShowDetails = function onShowDetails() {
+    visibility = !visibility;
+    render();
 };
 
-var onFormSubmit = function onFormSubmit(e) {
-    e.preventDefault();
-    var option = e.target.elements.option.value;
-    console.log(option);
-    if (option) {
-        app.options.push(option);
-        e.target.elements.option.value = '';
-        renserFormSubmit();
-    }
-};
+var render = function render() {
 
-var onRemoveAll = function onRemoveAll() {
-    app.options = [];
-    renserFormSubmit();
-};
-
-var onMakeDecision = function onMakeDecision() {
-    var randomNum = Math.floor(Math.random() * app.options.length);
-    var option = app.options[randomNum];
-    alert(option);
-};
-
-var appRoot = document.getElementById("app");
-
-var renserFormSubmit = function renserFormSubmit() {
-    var counter = 0;
     var template = React.createElement(
         'div',
         null,
         React.createElement(
             'h1',
             null,
-            app.title
-        ),
-        app.subtitle && React.createElement(
-            'p',
-            null,
-            app.subtitle
-        ),
-        React.createElement(
-            'p',
-            null,
-            app.options.length > 0 ? 'Here are your options: ' + ' ' : 'No Options'
+            'Visibility Toggle'
         ),
         React.createElement(
             'button',
-            { disabled: app.options.length === 0, onClick: onMakeDecision },
-            'What shoul I do?'
+            { onClick: onShowDetails },
+            visibility ? 'Hide Details' : 'Show Details'
         ),
-        React.createElement(
-            'button',
-            { onClick: onRemoveAll },
-            'Remove'
-        ),
-        React.createElement(
-            'ol',
+        visibility && React.createElement(
+            'div',
             null,
-            app.options.map(function (option) {
-                return React.createElement(
-                    'li',
-                    { key: counter++ },
-                    option
-                );
-            })
-        ),
-        React.createElement(
-            'form',
-            { onSubmit: onFormSubmit },
-            React.createElement('input', { type: 'text', name: 'option' }),
             React.createElement(
-                'button',
+                'p',
                 null,
-                'Add Option'
+                'Hey. These are some details you can now see!'
             )
         )
     );
-
-    ReactDOM.render(template, appRoot);
+    ReactDOM.render(template, document.getElementById("app"));
 };
 
-renserFormSubmit();
+render();
