@@ -52,10 +52,10 @@ const renserFormSubmit = () => {
             <ol>
                 {
                     app.options.map((option) => <li key={counter++}>{option}</li>)
-                }                
+                }                 
             </ol>
             
-            <form onSubmit={onFormSubmit}>
+            <form onSubmit={onFormSubmit}> 
                 <input type="text" name="option"/>
                 <button>Add Option</button>
             </form>
