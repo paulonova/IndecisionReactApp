@@ -1,3 +1,15 @@
+//Example of Binding
+
+// const obj = {
+//     name: 'Paulo',
+//     getName(){
+//         return this.name;
+//     }
+// }
+
+// const getName = obj.getName.bind({name: 'José'});
+// console.log(getName());
+
 class IndecisionApp extends React.Component{
     render(){
         const title = "Indecision";
@@ -45,13 +57,20 @@ class Action extends React.Component {
 
 
 class Options extends React.Component {
-    handleRermoveAll(){
-        alert('handleRermoveAll!');
+
+    constructor(props){
+        super(props);
+        this.handleRemoveAll = this.handleRemoveAll.bind(this);
+    }
+
+    handleRemoveAll(){
+        console.log(this.props.options);        
+        // alert('handleRermoveAll!');
     }
     render(){
         return (
             <div>
-                <button onClick={this.handleRermoveAll}>Remove All</button>
+                <button onClick={this.handleRemoveAll}>Remove All</button>
                 {
                   this.props.options.map((option) => <Option key={option} optionText={option}/>)
                 }
@@ -60,7 +79,6 @@ class Options extends React.Component {
     }
 }
 
-//Option -> Option component here
 
 class Option extends React.Component{
     render(){
@@ -74,15 +92,14 @@ class Option extends React.Component{
 
 
 class AddOption extends React.Component {
-    handleAddOption(e){
+    handleAddOption(e) {
         e.preventDefault();
-            const option = e.target.elements.option.value;
-            if(option){
-                e.target.elements.option.value='';
-                alert(option);
-            }
+        const option = (e.target.elements.option.value).trim();
+        if (option) {
+            e.target.elements.option.value = '';
+            alert(option);
+        }
     }
-
 
     render(){
         
