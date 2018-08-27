@@ -69,7 +69,15 @@ class Counter extends React.Component{
             return {
                 count: 0
             };
-        });          
+        });  
+        
+        //Example of setState argument
+        // this.setState((prevState) => {
+        //     return {
+        //         count: prevState.count + 1
+        //     };
+        // });
+        
     }
 
     render(){
