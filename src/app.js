@@ -12,6 +12,31 @@ class IndecisionApp extends React.Component{
         };
     }
 
+    
+
+    /********************************************
+     * REACT COMPONENT LIFECYCLE METHODS***************
+     */
+    //this function runs direct using this name 'componentDidMount'
+    componentDidMount(){
+        console.log('fetching data');        
+    }
+
+    //shows just when the props is updated..
+    componentDidUpdate(prevProps, prevState){
+        console.log('saving data');  
+    }
+
+    componentWillUnmount(){
+        console.log('componentWillUnmount');
+        
+    }
+    
+    /**
+     ********************************************
+     ********************************************/
+
+     
     handleDeleteOptions(){
         this.setState(() => ({options: []}));
     }
