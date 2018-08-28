@@ -19,6 +19,7 @@ var IndecisionApp = function (_React$Component) {
         _this.handleDeleteOptions = _this.handleDeleteOptions.bind(_this);
         _this.handlePick = _this.handlePick.bind(_this);
         _this.handleAddOptions = _this.handleAddOptions.bind(_this);
+        _this.handleDeleteOption = _this.handleDeleteOption.bind(_this);
         _this.state = {
             options: props.options
         };
@@ -29,21 +30,26 @@ var IndecisionApp = function (_React$Component) {
         key: 'handleDeleteOptions',
         value: function handleDeleteOptions() {
             this.setState(function () {
+                return { options: [] };
+            });
+        }
+    }, {
+        key: 'handleDeleteOption',
+        value: function handleDeleteOption(optionToRemove) {
+            this.setState(function (prevState) {
                 return {
-                    options: []
+                    options: prevState.options.filter(function (option) {
+                        return optionToRemove !== option;
+                    })
                 };
             });
         }
     }, {
         key: 'handlePick',
         value: function handlePick() {
-            var _this2 = this;
-
-            this.setState(function () {
-                var randNumber = Math.floor(Math.random() * _this2.state.options.length);
-                var option = _this2.state.options[randNumber];
-                return alert(option);
-            });
+            var randNumber = Math.floor(Math.random() * this.state.options.length);
+            var option = this.state.options[randNumber];
+            alert(option);
         }
     }, {
         key: 'handleAddOptions',
@@ -55,9 +61,7 @@ var IndecisionApp = function (_React$Component) {
             };
 
             this.setState(function (prevState) {
-                return {
-                    options: prevState.options.concat(option)
-                };
+                return { options: prevState.options.concat(option) };
             });
         }
     }, {
@@ -74,7 +78,8 @@ var IndecisionApp = function (_React$Component) {
                     handlePick: this.handlePick }),
                 React.createElement(Options, {
                     options: this.state.options,
-                    handleDeleteOptions: this.handleDeleteOptions }),
+                    handleDeleteOptions: this.handleDeleteOptions,
+                    handleDeleteOption: this.handleDeleteOption }),
                 React.createElement(AddOption, {
                     handleAddOptions: this.handleAddOptions })
             );
@@ -133,7 +138,9 @@ var Options = function Options(props) {
             'Remove All'
         ),
         props.options.map(function (option) {
-            return React.createElement(Option, { key: option, optionText: option });
+            return React.createElement(Option, {
+                key: option, optionText: option,
+                handleDeleteOption: props.handleDeleteOption });
         })
     );
 };
@@ -143,7 +150,14 @@ var Option = function Option(props) {
         'div',
         null,
         '* ',
-        props.optionText
+        props.optionText,
+        React.createElement(
+            'button',
+            { onClick: function onClick(e) {
+                    props.handleDeleteOption(props.optionText);
+                } },
+            'Remove'
+        )
     );
 };
 
@@ -153,13 +167,13 @@ var AddOption = function (_React$Component2) {
     function AddOption(props) {
         _classCallCheck(this, AddOption);
 
-        var _this3 = _possibleConstructorReturn(this, (AddOption.__proto__ || Object.getPrototypeOf(AddOption)).call(this, props));
+        var _this2 = _possibleConstructorReturn(this, (AddOption.__proto__ || Object.getPrototypeOf(AddOption)).call(this, props));
 
-        _this3.handleAddOptionComponent = _this3.handleAddOptionComponent.bind(_this3);
-        _this3.state = {
+        _this2.handleAddOptionComponent = _this2.handleAddOptionComponent.bind(_this2);
+        _this2.state = {
             error: undefined
         };
-        return _this3;
+        return _this2;
     }
 
     _createClass(AddOption, [{
@@ -171,9 +185,7 @@ var AddOption = function (_React$Component2) {
             var error = this.props.handleAddOptions(option);
 
             this.setState(function () {
-                return {
-                    error: error
-                };
+                return { error: error };
             });
         }
     }, {
