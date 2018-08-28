@@ -20,7 +20,7 @@ var IndecisionApp = function (_React$Component) {
         _this.handlePick = _this.handlePick.bind(_this);
         _this.handleAddOptions = _this.handleAddOptions.bind(_this);
         _this.state = {
-            options: []
+            options: props.options
         };
         return _this;
     }
@@ -63,13 +63,12 @@ var IndecisionApp = function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
-            var title = "Indecision";
             var subtitle = 'Put your work in the hands of a computer';
 
             return React.createElement(
                 'div',
                 null,
-                React.createElement(Header, { title: title, subtitle: subtitle }),
+                React.createElement(Header, { subtitle: subtitle }),
                 React.createElement(Action, {
                     hasOptions: this.state.options.length > 0,
                     handlePick: this.handlePick }),
@@ -85,10 +84,11 @@ var IndecisionApp = function (_React$Component) {
     return IndecisionApp;
 }(React.Component);
 
-// Stateless functional component
+IndecisionApp.defaultProps = {
+    options: ['Option one', 'Option two']
 
-
-var Header = function Header(props) {
+    // Stateless functional component
+};var Header = function Header(props) {
     return React.createElement(
         'div',
         null,
@@ -97,7 +97,7 @@ var Header = function Header(props) {
             null,
             props.title
         ),
-        React.createElement(
+        props.subtitle && React.createElement(
             'h2',
             null,
             props.subtitle
@@ -105,7 +105,10 @@ var Header = function Header(props) {
     );
 };
 
-// Stateless functional component
+Header.defaultProps = {
+    title: 'Indecision'
+};
+
 var Action = function Action(props) {
     return React.createElement(
         'div',
@@ -143,16 +146,6 @@ var Option = function Option(props) {
         props.optionText
     );
 };
-// class Option extends React.Component{
-//     render(){
-//         return(
-//             <div>
-//                 Option: {this.props.optionText}
-//             </div>
-//         )
-//     }
-// }
-
 
 var AddOption = function (_React$Component2) {
     _inherits(AddOption, _React$Component2);
@@ -211,15 +204,5 @@ var AddOption = function (_React$Component2) {
 
     return AddOption;
 }(React.Component);
-
-// const User = (props) =>{
-//     return(
-//         <div>
-//             <p>Name: {props.name}</p>
-//             <p>Age: {props.age}</p>
-//         </div>
-//     );
-// };
-
 
 ReactDOM.render(React.createElement(IndecisionApp, null), document.getElementById('app'));
