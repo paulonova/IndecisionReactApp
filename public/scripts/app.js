@@ -26,16 +26,24 @@ var IndecisionApp = function (_React$Component) {
         return _this;
     }
 
-    /********************************************
-     * REACT COMPONENT LIFECYCLE METHODS***************
-     */
-    //this function runs direct using this name 'componentDidMount'
-
+    /***************************************************
+     * REACT COMPONENT LIFECYCLE METHODS****************/
 
     _createClass(IndecisionApp, [{
         key: 'componentDidMount',
         value: function componentDidMount() {
-            console.log('fetching data');
+
+            try {
+                var json = localStorage.getItem('options');
+                var options = JSON.parse(json);
+                if (options) {
+                    this.setState(function () {
+                        return { options: options };
+                    });
+                }
+            } catch (e) {
+                //Do nothing..
+            }
         }
 
         //shows just when the props is updated..
@@ -43,18 +51,17 @@ var IndecisionApp = function (_React$Component) {
     }, {
         key: 'componentDidUpdate',
         value: function componentDidUpdate(prevProps, prevState) {
-            console.log('saving data');
+            if (prevState.options.length !== this.state.options.length) {
+                var json = JSON.stringify(this.state.options);
+                localStorage.setItem('options', json);
+                console.log('saving data');
+            }
         }
     }, {
         key: 'componentWillUnmount',
         value: function componentWillUnmount() {
             console.log('componentWillUnmount');
         }
-
-        /**
-         ********************************************
-         ********************************************/
-
     }, {
         key: 'handleDeleteOptions',
         value: function handleDeleteOptions() {
@@ -119,7 +126,7 @@ var IndecisionApp = function (_React$Component) {
 }(React.Component);
 
 IndecisionApp.defaultProps = {
-    options: ['Option one', 'Option two']
+    options: []
 
     // Stateless functional component
 };var Header = function Header(props) {
@@ -166,6 +173,11 @@ var Options = function Options(props) {
             { onClick: props.handleDeleteOptions },
             'Remove All'
         ),
+        props.options.length === 0 && React.createElement(
+            'p',
+            null,
+            'Please add an option to get started!'
+        ),
         props.options.map(function (option) {
             return React.createElement(Option, {
                 key: option, optionText: option,
@@ -210,12 +222,14 @@ var AddOption = function (_React$Component2) {
         value: function handleAddOptionComponent(e) {
             e.preventDefault();
             var option = e.target.elements.option.value.trim();
-            e.target.elements.option.value = '';
             var error = this.props.handleAddOptions(option);
 
             this.setState(function () {
                 return { error: error };
             });
+            if (!error) {
+                e.target.elements.option.value = '';
+            }
         }
     }, {
         key: 'render',
