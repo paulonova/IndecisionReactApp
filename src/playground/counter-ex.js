@@ -5,23 +5,44 @@
 
 
 class Counter extends React.Component{
-
+    
     constructor(props){
         super(props);
         this.handleAddOne = this.handleAddOne.bind(this);
         this.handleMinusOne = this.handleMinusOne.bind(this);
         this.handleReset = this.handleReset.bind(this);
         this.state = {
-            count: props.count
+            count: 0
+        }
+    } 
+    
+    
+    componentDidMount(){
+        console.log('GET ITEM..');        
+        const stringCount = localStorage.getItem('count');
+        const count = parseInt(stringCount, 10);
+
+        if(!isNaN(count)){
+            this.setState(() => ({count: count}))
         }
     }
 
-    handleAddOne(){
+    componentDidUpdate(prevProps, prevState){ 
+        console.log('SAVE ITEM..', prevState.count , this.state.count);       
+        if(prevState.count !== this.state.count){
+            localStorage.setItem('count', this.state.count);
+        }
+    }
+
+    
+
+    handleAddOne(){  
         this.setState((prevState) => {
             return {
                 count: prevState.count + 1
             };
-        });    
+        });
+        
     }
 
     handleMinusOne(){
@@ -37,15 +58,7 @@ class Counter extends React.Component{
             return {
                 count: 0
             };
-        });  
-        
-        //Example of setState argument
-        // this.setState((prevState) => {
-        //     return {
-        //         count: prevState.count + 1
-        //     };
-        // });
-        
+        });
     }
 
     render(){
@@ -66,7 +79,7 @@ Counter.defaultProps = {
 }
 
 
-ReactDOM.render(<Counter count={20}/>, document.getElementById('app')); 
+ReactDOM.render(<Counter/>, document.getElementById('app')); 
 
 /**Can be used:
  * 
