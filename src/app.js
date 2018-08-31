@@ -1,12 +1,9 @@
-// import {square, add, name} from './utils.js';
-import {isAdult, canDrink} from './person.js';
+// import validator from 'validator';
+// console.log(validator.isEmail('test@gmail.com'));
 
-// console.log('app.js is running!!');
-// console.log(square(4));
-// console.log(add(4, 10));
-// console.log(name);
+import React from 'react';
+import ReactDOM from 'react-dom';
+import IndecisionApp from './components//IndecisionApp'
 
 
-console.log("Is he adult? ", isAdult(12));
-console.log("Can he drink? ", canDrink(25));
-
+ReactDOM.render(<IndecisionApp/>, document.getElementById('app'));
