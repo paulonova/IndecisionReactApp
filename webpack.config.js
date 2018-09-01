@@ -15,6 +15,8 @@ module.exports = {
             exclude: /node_modules/
         }]
     },
-    devtool: 'cheap-module-eval-source-map'
-    /** show where the error really is.. */
+    devtool: 'cheap-module-eval-source-map', /** show where the error really is.. */    
+    devServer: {
+        contentBase: path.join(__dirname, 'public')
+    }
 };
