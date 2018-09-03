@@ -1,0 +1,157 @@
+/* line 2, D:/FRONTEND UTVECKLING/UDMY_COURSES/REACT/indecision-app/src/sass/base/_base.scss */
+html {
+  font-size: 62.5%;
+}
+
+/* line 6, D:/FRONTEND UTVECKLING/UDMY_COURSES/REACT/indecision-app/src/sass/base/_base.scss */
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1.6rem;
+  background-color: #333745;
+}
+
+/* line 12, D:/FRONTEND UTVECKLING/UDMY_COURSES/REACT/indecision-app/src/sass/base/_base.scss */
+button {
+  cursor: pointer;
+}
+
+/* line 16, D:/FRONTEND UTVECKLING/UDMY_COURSES/REACT/indecision-app/src/sass/base/_base.scss */
+button:disabled {
+  cursor: default;
+}
+
+/* line 2, D:/FRONTEND UTVECKLING/UDMY_COURSES/REACT/indecision-app/src/sass/components/_button.scss */
+.big-button {
+  background: #8357c5;
+  border: none;
+  border-bottom: 0.6rem solid #693cad;
+  color: white;
+  font-weight: bold;
+  font-size: 3.2rem;
+  margin-bottom: 4.8rem;
+  padding: 2.4rem;
+  width: 100%;
+}
+
+/* line 15, D:/FRONTEND UTVECKLING/UDMY_COURSES/REACT/indecision-app/src/sass/components/_button.scss */
+.big-button:disabled {
+  opacity: .5;
+}
+
+/* line 19, D:/FRONTEND UTVECKLING/UDMY_COURSES/REACT/indecision-app/src/sass/components/_button.scss */
+.button {
+  background: #8357c5;
+  border: none;
+  border-bottom: 0.3rem solid #693cad;
+  color: white;
+  font-weight: 500;
+  padding: 1.2rem;
+}
+
+/* line 28, D:/FRONTEND UTVECKLING/UDMY_COURSES/REACT/indecision-app/src/sass/components/_button.scss */
+.button--link {
+  background: none;
+  border: none;
+  color: #a5afd7;
+  padding: 0;
+}
+
+/* line 1, D:/FRONTEND UTVECKLING/UDMY_COURSES/REACT/indecision-app/src/sass/components/_container.scss */
+.container {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 0 1.6rem;
+}
+
+/* line 3, D:/FRONTEND UTVECKLING/UDMY_COURSES/REACT/indecision-app/src/sass/components/_header.scss */
+.header {
+  background: #20222b;
+  color: white;
+  margin-bottom: 4.8rem;
+  padding: 1.6rem 0;
+}
+
+/* line 10, D:/FRONTEND UTVECKLING/UDMY_COURSES/REACT/indecision-app/src/sass/components/_header.scss */
+.header__title {
+  font-size: 3.2rem;
+  margin: 0;
+}
+
+/* line 15, D:/FRONTEND UTVECKLING/UDMY_COURSES/REACT/indecision-app/src/sass/components/_header.scss */
+.header__subtitle {
+  color: #a5afd7;
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* line 2, D:/FRONTEND UTVECKLING/UDMY_COURSES/REACT/indecision-app/src/sass/components/_widget.scss */
+.widget {
+  background: #464b5e;
+}
+
+/* line 6, D:/FRONTEND UTVECKLING/UDMY_COURSES/REACT/indecision-app/src/sass/components/_widget.scss */
+.widget__message {
+  color: #a5afd7;
+  margin: 0;
+  padding: 3.2rem;
+  text-align: center;
+  border-bottom: 1px solid #5c627b;
+}
+
+/* line 14, D:/FRONTEND UTVECKLING/UDMY_COURSES/REACT/indecision-app/src/sass/components/_widget.scss */
+.widget-header {
+  background: #3c4251;
+  color: #a5afd7;
+  padding: 1.6rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* line 22, D:/FRONTEND UTVECKLING/UDMY_COURSES/REACT/indecision-app/src/sass/components/_widget.scss */
+.widget-header__title {
+  margin: 0;
+}
+
+/* line 2, D:/FRONTEND UTVECKLING/UDMY_COURSES/REACT/indecision-app/src/sass/components/_option.scss */
+.option {
+  border-bottom: 1px solid #5c627b;
+  display: flex;
+  justify-content: space-between;
+  padding: 3.2rem 1.6rem;
+}
+
+/* line 9, D:/FRONTEND UTVECKLING/UDMY_COURSES/REACT/indecision-app/src/sass/components/_option.scss */
+.option__text {
+  margin: 0;
+  color: whitesmoke;
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+/* line 2, D:/FRONTEND UTVECKLING/UDMY_COURSES/REACT/indecision-app/src/sass/components/_add-option.scss */
+.add-option-error {
+  color: #a5afd7;
+  font-style: italic;
+  padding: 0 1.6rem;
+  margin: 1.6rem 0 0 0;
+}
+
+/* line 9, D:/FRONTEND UTVECKLING/UDMY_COURSES/REACT/indecision-app/src/sass/components/_add-option.scss */
+.add-option {
+  display: flex;
+  padding: 1.6rem;
+}
+
+/* line 14, D:/FRONTEND UTVECKLING/UDMY_COURSES/REACT/indecision-app/src/sass/components/_add-option.scss */
+.add-option__input {
+  background: #333745;
+  border: none;
+  border-bottom: 0.3rem solid #1d2028;
+  flex-grow: 1;
+  color: #a5afd7;
+  padding: 1.2rem;
+  margin-right: 1.2rem;
+}
+
+/*# sourceMappingURL=../styles/style.map */

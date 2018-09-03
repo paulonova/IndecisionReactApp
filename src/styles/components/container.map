@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "../../sass/components/container.css",
+	"sources": [
+		"../../sass/components/container.scss"
+	],
+	"sourcesContent": [
+		".container{\r\n    max-width: 60rem;\r\n    margin: 0 auto;\r\n}"
+	],
+	"mappings": ";AAAA,AAAA,UAAU,CAAA;EACN,SAAS,EAAE,KAAM;EACjB,MAAM,EAAE,MAAO;CAClB",
+	"names": []
+}
