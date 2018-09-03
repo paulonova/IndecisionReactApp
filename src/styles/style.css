@@ -127,6 +127,7 @@ button:disabled {
   color: whitesmoke;
   font-weight: 500;
   font-size: 2rem;
+  word-break: break-all;
 }
 
 /* line 2, D:/FRONTEND UTVECKLING/UDMY_COURSES/REACT/indecision-app/src/sass/components/_add-option.scss */
@@ -152,6 +153,52 @@ button:disabled {
   color: #a5afd7;
   padding: 1.2rem;
   margin-right: 1.2rem;
+}
+
+/* line 2, D:/FRONTEND UTVECKLING/UDMY_COURSES/REACT/indecision-app/src/sass/components/_modal.scss */
+.ReactModalPortal > div {
+  opacity: 0;
+}
+
+/* line 6, D:/FRONTEND UTVECKLING/UDMY_COURSES/REACT/indecision-app/src/sass/components/_modal.scss */
+.ReactModalPortal .ReactModal__Overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 500ms ease-in-out;
+}
+
+/* line 13, D:/FRONTEND UTVECKLING/UDMY_COURSES/REACT/indecision-app/src/sass/components/_modal.scss */
+.ReactModalPortal .ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+/* line 17, D:/FRONTEND UTVECKLING/UDMY_COURSES/REACT/indecision-app/src/sass/components/_modal.scss */
+.ReactModalPortal .ReactModal__Overlay--before-close {
+  opacity: 0;
+}
+
+/* line 21, D:/FRONTEND UTVECKLING/UDMY_COURSES/REACT/indecision-app/src/sass/components/_modal.scss */
+.modal {
+  background: #464b5e;
+  color: whitesmoke;
+  max-width: 30rem;
+  outline: none;
+  padding: 3.2rem;
+  text-align: center;
+}
+
+/* line 30, D:/FRONTEND UTVECKLING/UDMY_COURSES/REACT/indecision-app/src/sass/components/_modal.scss */
+.modal__title {
+  margin: 0 0 1.6rem 0;
+}
+
+/* line 34, D:/FRONTEND UTVECKLING/UDMY_COURSES/REACT/indecision-app/src/sass/components/_modal.scss */
+.modal__body {
+  font-size: 2rem;
+  font-weight: 300;
+  margin: 0 0 3.2rem 0;
+  word-break: break-all;
 }
 
 /*# sourceMappingURL=../styles/style.map */
