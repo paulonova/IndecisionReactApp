@@ -28,7 +28,7 @@ button:disabled {
   color: white;
   font-weight: bold;
   font-size: 3.2rem;
-  margin-bottom: 4.8rem;
+  margin-bottom: 1.6rem;
   padding: 2.4rem;
   width: 100%;
 }
@@ -56,6 +56,13 @@ button:disabled {
   padding: 0;
 }
 
+@media (max-width: 45rem) {
+  /* line 37, D:/FRONTEND UTVECKLING/UDMY_COURSES/REACT/indecision-app/src/sass/components/_button.scss */
+  .big-button {
+    margin-bottom: 4.8rem;
+  }
+}
+
 /* line 1, D:/FRONTEND UTVECKLING/UDMY_COURSES/REACT/indecision-app/src/sass/components/_container.scss */
 .container {
   max-width: 60rem;
@@ -67,7 +74,7 @@ button:disabled {
 .header {
   background: #20222b;
   color: white;
-  margin-bottom: 4.8rem;
+  margin-bottom: 1.6rem;
   padding: 1.6rem 0;
 }
 
@@ -83,6 +90,13 @@ button:disabled {
   font-size: 1.6rem;
   font-weight: 500;
   margin: 0;
+}
+
+@media (max-width: 45rem) {
+  /* line 24, D:/FRONTEND UTVECKLING/UDMY_COURSES/REACT/indecision-app/src/sass/components/_header.scss */
+  .header {
+    margin-bottom: 4.8rem;
+  }
 }
 
 /* line 2, D:/FRONTEND UTVECKLING/UDMY_COURSES/REACT/indecision-app/src/sass/components/_widget.scss */
@@ -141,10 +155,11 @@ button:disabled {
 /* line 9, D:/FRONTEND UTVECKLING/UDMY_COURSES/REACT/indecision-app/src/sass/components/_add-option.scss */
 .add-option {
   display: flex;
+  flex-direction: column;
   padding: 1.6rem;
 }
 
-/* line 14, D:/FRONTEND UTVECKLING/UDMY_COURSES/REACT/indecision-app/src/sass/components/_add-option.scss */
+/* line 15, D:/FRONTEND UTVECKLING/UDMY_COURSES/REACT/indecision-app/src/sass/components/_add-option.scss */
 .add-option__input {
   background: #333745;
   border: none;
@@ -152,7 +167,18 @@ button:disabled {
   flex-grow: 1;
   color: #a5afd7;
   padding: 1.2rem;
-  margin-right: 1.2rem;
+  margin: 0 0 1.2rem 0;
+}
+
+@media (max-width: 45rem) {
+  /* line 27, D:/FRONTEND UTVECKLING/UDMY_COURSES/REACT/indecision-app/src/sass/components/_add-option.scss */
+  .add-option {
+    flex-direction: row;
+  }
+  /* line 31, D:/FRONTEND UTVECKLING/UDMY_COURSES/REACT/indecision-app/src/sass/components/_add-option.scss */
+  .add-option__input {
+    margin: 0 1.2rem 0 0;
+  }
 }
 
 /* line 2, D:/FRONTEND UTVECKLING/UDMY_COURSES/REACT/indecision-app/src/sass/components/_modal.scss */
